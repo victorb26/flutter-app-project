@@ -1,3 +1,4 @@
+import 'package:alura_flutter_curso_1/screens/form_tela.dart';
 import 'package:alura_flutter_curso_1/screens/tela_inicial.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.cyan,
       ),
-      home: InitialScreen(),
+      home: FormTela(),
     );
   }
 }
