@@ -57,10 +57,8 @@ class _FormTelaState extends State<FormTela> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
-                  onChanged: (text){
-                    setState(() {
-
-                    });
+                  onChanged: (text) {
+                    setState(() {});
                   },
                   controller: imageController,
                   textAlign: TextAlign.center,
@@ -84,6 +82,10 @@ class _FormTelaState extends State<FormTela> {
                   borderRadius: BorderRadius.circular(10),
                   child: Image.network(
                     imageController.text,
+                    errorBuilder: (BuildContext context, Object exception,
+                        StackTrace? stackTrace) {
+                      return Container();
+                    },
                     fit: BoxFit.cover,
                   ),
                 ),
