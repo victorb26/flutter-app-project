@@ -125,6 +125,12 @@ class _FormTelaState extends State<FormTela> {
                           print(nameController.text);
                           print(difficultyController.text);
                           print(imageController.text);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text(
+                                  'Salvando Nova Tarefa!')
+                              ),
+                          );
                         }
                       },
                       child: Text('Adicionar'))
