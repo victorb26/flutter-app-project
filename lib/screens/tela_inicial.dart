@@ -1,5 +1,7 @@
 import 'package:alura_flutter_curso_1/components/tasks.dart';
+import 'package:alura_flutter_curso_1/screens/form_tela.dart';
 import 'package:flutter/material.dart';
+
 
 class InitialScreen extends StatefulWidget {
   const InitialScreen({Key? key}) : super(key: key);
@@ -10,20 +12,14 @@ class InitialScreen extends StatefulWidget {
 
 class _InitialScreenState extends State<InitialScreen> {
   @override
-  bool opacidade = true;
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Container(),
         title: const Text("Meus Objetivos:"),
-        leading: Icon(Icons.add_task),
+
       ),
-      body: AnimatedOpacity(
-        opacity: opacidade ? 1.0 : 0.0,
-        duration: const Duration(milliseconds: 500),
-        child: Container(
-          color: Color.fromARGB(255, 208, 221, 237),
-          child: ListView(
+      body:ListView(
             children: const [
               Padding(
                 padding: EdgeInsets.only(top: 8),
@@ -39,19 +35,19 @@ class _InitialScreenState extends State<InitialScreen> {
               ),
               SizedBox(
                 height: 100,
-              ),
+              )
             ],
           ),
-        ),
-      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            opacidade = !opacidade;
-          });
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => FormTela(),
+            ),
+          );
         },
-        backgroundColor: Colors.blue[100],
-        child: const Icon(Icons.remove_red_eye),
+        child: const Icon(Icons.add),
       ),
     );
   }

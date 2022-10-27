@@ -16,14 +16,13 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
-  bool opacidade = true;
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Objetivos',
       theme: ThemeData(
         primarySwatch: Colors.cyan,
       ),
-      home: FormTela(),
+      home: InitialScreen(),
     );
   }
 }

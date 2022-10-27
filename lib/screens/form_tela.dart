@@ -131,6 +131,7 @@ class _FormTelaState extends State<FormTela> {
                                   'Salvando Nova Tarefa!')
                               ),
                           );
+                          Navigator.pop(context);
                         }
                       },
                       child: Text('Adicionar'))
