@@ -1,7 +1,10 @@
+import 'package:alura_flutter_curso_1/data/task_inherited.dart';
 import 'package:flutter/material.dart';
 
 class FormTela extends StatefulWidget {
-  const FormTela({Key? key}) : super(key: key);
+  const FormTela({Key? key, required this.taskContext}) : super(key: key);
+
+  final BuildContext taskContext;
 
   @override
   State<FormTela> createState() => _FormTelaState();
@@ -122,13 +125,17 @@ class _FormTelaState extends State<FormTela> {
                   ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          print(nameController.text);
-                          print(difficultyController.text);
-                          print(imageController.text);
+                          // print(nameController.text);
+                          // print(difficultyController.text);
+                          // print(imageController.text);
+                          TaskInherited.of(widget.taskContext).newTask(
+                              nameController.text,
+                              imageController.text,
+                              int.parse(difficultyController.text));
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
                                   content: Text(
-                                  'Salvando Nova Tarefa!')
+                                  'Criando Nova Tarefa!')
                               ),
                           );
                           Navigator.pop(context);

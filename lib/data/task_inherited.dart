@@ -12,7 +12,6 @@ class TaskInherited extends InheritedWidget {
    Tasks('Andar de Bike', 'assets/images/bike.webp', 2),
    Tasks('Ler a Bíblia', 'assets/images/biblia.jpg', 1),
    Tasks('Aprender Inglês', 'assets/images/uk_flag.jpg', 4),
-   Tasks('Trabalhar na PlugPix', 'assets/images/plugpix.png', 0),
   ];
 
   void newTask(String name, String photo, int difficulty){
@@ -26,7 +25,7 @@ taskList.add(Tasks(name, photo, difficulty));
   }
 
   @override
-  bool updateShouldNotify(TaskInherited old) {
-    return ;
+  bool updateShouldNotify(TaskInherited oldWidget) {
+    return oldWidget.taskList.length != taskList.length;
   }
 }

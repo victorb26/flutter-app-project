@@ -1,4 +1,5 @@
 import 'package:alura_flutter_curso_1/components/tasks.dart';
+import 'package:alura_flutter_curso_1/data/task_inherited.dart';
 import 'package:alura_flutter_curso_1/screens/form_tela.dart';
 import 'package:flutter/material.dart';
 
@@ -20,30 +21,14 @@ class _InitialScreenState extends State<InitialScreen> {
 
       ),
       body:ListView(
-            children: const [
-              Padding(
-                padding: EdgeInsets.only(top: 8),
-                child: Tasks('Estudar Flutter', 'assets/images/flutter.png', 3),
-              ),
-              Tasks('Andar de Bike', 'assets/images/bike.webp', 2),
-              Tasks('Ler a Bíblia', 'assets/images/biblia.jpg', 1),
-              Tasks('Aprender Inglês', 'assets/images/uk_flag.jpg', 4),
-              Tasks(
-                'Trabalhar na PlugPix',
-                'assets/images/plugpix.png',
-                0,
-              ),
-              SizedBox(
-                height: 100,
-              )
-            ],
+            children: TaskInherited.of(context).taskList,
           ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => FormTela(),
+              builder: (contextNew) => FormTela(taskContext: context,),
             ),
           );
         },
